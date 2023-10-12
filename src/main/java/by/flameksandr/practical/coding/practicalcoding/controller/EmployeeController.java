@@ -9,10 +9,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/employees")
 public class EmployeeController {
     private EmployeeService employeeService;
 
@@ -26,12 +27,11 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public Page<Employee> getAllEmployees(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "id") String sortBy) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
-        return employeeService.getAllEmployees(pageable);
+    public List<Employee> getAllEmployees(){
+        //Use the custom query to retrieve all employees whose first name starts with "A"
+        //and sort them by name
+
+        return employeeService.getAllEmployeesAndSortByNameStartingWithA();
     }
 
     @GetMapping("/{id}")

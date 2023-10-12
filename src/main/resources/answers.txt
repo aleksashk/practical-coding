@@ -9,4 +9,8 @@ With these changes, you can now retrieve employees with pagination in your Sprin
 Fetch records using findAll() with Pageable: In your service or controller, inject the repository and use the findAll() method with the Pageable parameter to fetch records with pagination.
 In this example, the fetchEmployeeWithPagination() method fetches users with pagination using the EmployeeRepository and the Pageable parameter. The pageNumber parameter specifies the page number (starting from 0), and the pageSize parameter specifies the number of records to fetch per page.
 
-You can then call this method from your controller or any other part of your application to fetch 10,000 records with pagination using Spring Data JPA. Note that Spring Data JPA automatically handles the pagination and sorting logic for you, making it easy to implement pagination in your application
+You can then call this method from your controller or any other part of your application to fetch 10,000 records with pagination using Spring Data JPA. Note that Spring Data JPA automatically handles the pagination and sorting logic for you, making it easy to implement pagination in your application.
+
+3.
+Update the EmployeeRepository interface with a custom query for sorting employees by name/
+In the above query, e.firstName LIKE 'A%' specifies to filter employees whose firstName property starts with "A", and then ORDER BY e.firstName ASC, e.lastName ASC specifies to sort them by firstName in ascending order and then by lastName in ascending order.
