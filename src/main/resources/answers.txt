@@ -1,0 +1,6 @@
+1.
+In the above code, the page the parameter specifies the page number (starting from 0), the size the parameter specifies the number of items per page and the sortBy the parameter specifies the property to sort by. These parameters are used to create a Pageable the object that is passed to the getAllEmployees() method in the EmployeeService class.
+
+You can modify the default values of page, size, and sortBy as needed, and also customize the sorting behavior by modifying the Sort.by() method.
+
+With these changes, you can now retrieve employees with pagination in your Spring Boot application using Spring Data JPA. The response will include the requested page of employees along with metadata such as the total number of pages, the total number of items, etc.

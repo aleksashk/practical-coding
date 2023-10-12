@@ -2,9 +2,10 @@ package by.flameksandr.practical.coding.practicalcoding.service;
 
 import by.flameksandr.practical.coding.practicalcoding.entity.Employee;
 import by.flameksandr.practical.coding.practicalcoding.repository.EmployeeRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,8 +20,8 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
+    public Page<Employee> getAllEmployees(Pageable pageable) {
+        return employeeRepository.findAll(pageable);
     }
 
     public Optional<Employee> getEmployeeById(Long id) {
