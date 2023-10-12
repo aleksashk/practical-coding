@@ -14,3 +14,6 @@ You can then call this method from your controller or any other part of your app
 3.
 Update the EmployeeRepository interface with a custom query for sorting employees by name/
 In the above query, e.firstName LIKE 'A%' specifies to filter employees whose firstName property starts with "A", and then ORDER BY e.firstName ASC, e.lastName ASC specifies to sort them by firstName in ascending order and then by lastName in ascending order.
+1. Update the REST API endpoint in the EmployeeController class to use the custom query for sorting employees.
+2. Update the EmployeeService class to call the custom query from the repository/
+    With these changes, the employees whose first name starts with “A” will be retrieved and sorted by name using the custom query in the EmployeeRepository interface. Note that the custom query in this example filters employees by first name starting with "A" and sorts them by both firstName and lastName in ascending order. You can modify the query as needed to suit your sorting and filtering requirements.
